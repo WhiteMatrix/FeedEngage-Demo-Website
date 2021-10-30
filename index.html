@@ -74,12 +74,14 @@
         <script>
             function submitForm() {
                 document.getElementById("formPublishButton").disabled = true;
-                document.getElementById("confirmationContainer").innerText = "Request sent. Post should appear momentarily on the top of this page.";
+                document.getElementById("confirmationContainer").innerText = "Please wait...";
                 fetch("https://feedengage-demo-submit.zkksoftworks.workers.dev/", 
                 {
                     method: "POST",
                     body: JSON.stringify({title: Number(document.querySelector('input[name="title"]:checked').value), content: Number(document.querySelector('input[name="content"]:checked').value), image: Number(document.querySelector('input[name="image"]:checked').value) })
                 })
+                    .then(() => document.getElementById("confirmationContainer").innerText = "Request sent. Post should appear momentarily on the top of this page.")
+                    .catch(() => document.getElementById("confirmationContainer").innerText = "Something has gone wrong. Please try again.")
             }
         </script>
     </body>
