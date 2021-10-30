@@ -54,6 +54,7 @@
                 </fieldset>
 
                 <input type="submit" value="Publish!" id="formPublishButton" />
+                <div id="confirmationContainer"></div>
             </form>
         </div>
 
@@ -73,10 +74,11 @@
         <script>
             function submitForm() {
                 document.getElementById("formPublishButton").disabled = true;
+                document.getElementById("confirmationContainer").innerText = "Request sent. Post should appear momentarily on the top of this page.";
                 fetch("https://feedengage-demo-submit.zkksoftworks.workers.dev//", 
                 {
                     method: "POST",
-                    body: JSON.stringify({title: document.querySelector('input[name="title"]:checked').value, content: document.querySelector('input[name="content"]:checked').value, image: document.querySelector('input[name="image"]:checked').value })
+                    body: JSON.stringify({title: Number(document.querySelector('input[name="title"]:checked').value), content: Number(document.querySelector('input[name="content"]:checked').value), image: Number(document.querySelector('input[name="image"]:checked').value) })
                 })
             }
         </script>

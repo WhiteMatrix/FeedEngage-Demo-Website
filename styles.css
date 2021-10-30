@@ -34,6 +34,7 @@ body {
   width: 100%;
   height: 50vh;
   border-radius: 0.3rem;
+  background-color: #ffffff;
 }
 
 #section2 {
@@ -64,6 +65,15 @@ body {
 
 #formPublishButton:hover, #formPublishButton:focus {
   background-color: #ffffff;
+}
+
+#formPublishButton:disabled {
+  background-color: #5e5e5e;
+  color: #ffffff;
+}
+
+#confirmationContainer {
+  margin-top: 0.5em;
 }
 
 .formImageElements {
